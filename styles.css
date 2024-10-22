@@ -1,0 +1,88 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 90%;
+    background-color: chocolate;
+    margin-inline: auto;
+}
+
+.wrapper {
+    margin-top: 20dvh;
+    background-color: #27272a;
+    height: 65dvh;
+}
+
+.display {
+    padding-block: 2rem;
+    padding-inline: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    margin-block: 1.3rem;
+}
+
+#calc {
+    height: 3rem;
+    width: 95%;
+    margin-inline: auto;
+    font-size: 1.5rem;
+    text-align: right;
+    border: 1px solid #616161;
+    border-radius: 7px;
+}
+
+.controls {
+    padding-block: 0.1rem;
+    padding-inline: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+#backspace {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #616161;
+    border-radius: 50%;
+    background-color: #616161;
+    color: whitesmoke;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.5);
+}
+
+
+button:not(.backspace) {
+    font-size: 1.5rem;
+}
+
+button.operators {
+    font-size: 2rem;
+}
+
+.zero {
+    width: 7.75rem;
+    border-radius: 50px;
+}
+
+.special {
+    color: whitesmoke;
+}
+
+.unique {
+    background-color: rgb(210, 105, 30);
+    color: whitesmoke;
+}
