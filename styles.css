@@ -41,11 +41,12 @@ body {
 .controls {
     padding-block: 0.1rem;
     padding-inline: 0.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     gap: 1.5rem;
-    flex-wrap: wrap;
+    justify-items: center;
+    align-items: center;
 }
 
 #backspace {
@@ -59,7 +60,7 @@ button {
     height: 50px;
     border: 1px solid #616161;
     border-radius: 50%;
-    background-color: #616161;
+    background-color: #6161614e;
     color: whitesmoke;
     box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.5);
 }
@@ -74,12 +75,13 @@ button.operators {
 }
 
 .zero {
-    width: 7.75rem;
+    grid-column:span 2;
+    width: 100%;
     border-radius: 50px;
 }
 
 .special {
-    color: whitesmoke;
+    color: darkorange;
 }
 
 .unique {
