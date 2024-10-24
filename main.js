@@ -33,15 +33,21 @@ let operandOne, activeOperator, operandTwo;
 
 numkeys.forEach(btn => {
   btn.addEventListener("click", () => {
-      if(operandOne && activeOperator){
-          currentValue += btn.textContent;
-          operandTwo = parseFloat(currentValue);
-          display.value = currentValue;
-          console.log("operandTwo:", operandTwo);
-      }else {
-          currentValue+= btn.textContent;
-          display.value = currentValue;
-      }
+    if(btn.textContent === "."){
+        if(display.value.includes(".")){
+            return;
+        }
+    }
+    
+    if(operandOne && activeOperator){
+        currentValue += btn.textContent;
+        operandTwo = parseFloat(currentValue);
+        display.value = currentValue;
+        console.log("operandTwo:", operandTwo);
+    }else {
+        currentValue+= btn.textContent;
+        display.value = currentValue;
+    }
   });
 });
 
