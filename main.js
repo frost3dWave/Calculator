@@ -48,12 +48,22 @@ numkeys.forEach(btn => {
 operators.forEach(btn => {
     if (btn.textContent !== "=") {
         btn.addEventListener("click", () => {
-            operandOne = parseFloat(display.value); // Ensure operandOne is a number
-            activeOperator = btn.textContent; // Capture operator
-            currentValue = ""; // Reset current value for next input
-            display.value = ""; // Clear the display
-            console.log("operandOne:", operandOne); // Debug log
-            console.log("activeOperator:", activeOperator); // Debug log
+            if(operandOne && activeOperator && currentValue !== ""){
+                operandTwo = parseFloat(currentValue);
+                const newResult = allOperations(operandOne, activeOperator, operandTwo);
+                display.value = newResult;
+                operandOne = newResult;
+                activeOperator = btn.textContent;
+                operandTwo = undefined;
+                currentValue = "";
+            }else {
+                operandOne = parseFloat(display.value); // Ensure operandOne is a number
+                activeOperator = btn.textContent; // Capture operator
+                currentValue = ""; // Reset current value for next input
+                display.value = ""; // Clear the display
+                console.log("operandOne:", operandOne); // Debug log
+                console.log("activeOperator:", activeOperator); // Debug log
+            }
         });
     }else {
         btn.addEventListener("click", () => {
