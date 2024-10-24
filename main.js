@@ -1,6 +1,9 @@
 const operators = document.querySelectorAll(".operators");
 const display = document.querySelector("#calc");
 const numkeys = document.querySelectorAll(".numbers");
+const percentile = document.querySelector(".percentile");
+const signChange = document.querySelector(".alter-PN");
+const clearAll = document.querySelector(".clear_all");
 
 function allOperations(num1, operator, num2){
     let currentOperator = operator;
@@ -38,12 +41,11 @@ numkeys.forEach(btn => {
             return;
         }
     }
-    
+
     if(operandOne && activeOperator){
         currentValue += btn.textContent;
         operandTwo = parseFloat(currentValue);
         display.value = currentValue;
-        console.log("operandTwo:", operandTwo);
     }else {
         currentValue+= btn.textContent;
         display.value = currentValue;
@@ -67,8 +69,6 @@ operators.forEach(btn => {
                 activeOperator = btn.textContent; // Capture operator
                 currentValue = ""; // Reset current value for next input
                 display.value = ""; // Clear the display
-                console.log("operandOne:", operandOne); // Debug log
-                console.log("activeOperator:", activeOperator); // Debug log
             }
         });
     }else {
@@ -82,4 +82,24 @@ operators.forEach(btn => {
             currentValue = "";
         });
     }
+});
+
+percentile.addEventListener("click", () => {
+    currentValue = (parseFloat(display.value) / 100).toString();
+    display.value = currentValue;
+});
+
+signChange.addEventListener("click", () => {
+    if(display.value !== "0"){
+        currentValue = (parseFloat(display.value) * -1).toString();
+        display.value = currentValue;
+    }
+});
+
+clearAll.addEventListener("click", () => {
+    operandOne = undefined;
+    operandTwo = undefined; 
+    activeOperator = undefined; 
+    currentValue = ""; 
+    display.value = "";
 });
