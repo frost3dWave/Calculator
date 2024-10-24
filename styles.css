@@ -1,5 +1,6 @@
 :root{
-    --clr-body-bg: #1c1917;
+    --clr-body-bg: #155e75;
+    --clr-calc-bg: #232221;
     --clr-display-bg: #6b7280;
     --clr-btn: #52525b; 
     --clr-operator-btn: #d97706;
@@ -16,7 +17,8 @@
 
 body {
     max-width: 90%;
-    background-color: #FCB31B;
+    width: min(90%, 360px);
+    background-color: var(--clr-body-bg);
     margin-inline: auto;
 }
 
@@ -26,8 +28,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--clr-body-bg);
-    border: 1px solid var(--clr-body-bg);
+    background-color: var(--clr-calc-bg);
+    border: 1px solid var(--clr-calc-bg);
     border-radius: 15px;
     margin: 5rem auto;
     margin-bottom: 2rem;
@@ -37,21 +39,29 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1rem;
+    margin-inline: 1rem;
+    margin-top: 1.5rem;
 }
 
 #calc {
     width: 100%;
-    padding: 1rem;
-    font-size: 1.325rem;
+    padding: 1.5rem;
+    font-size: 1.5rem;
     text-align: right;
     border-radius: 10px;
-    color: whitesmoke;
+    color: #22c55e;
+    box-shadow: inset 1px 1px 5px #27272a;
+}
+
+::placeholder {
+    color: #22c55e;
+    opacity: 1;
+    font-size: 1.5rem;
 }
 
 .controls {
     width: 90%;
-    border: 1px solid var(--clr-display-bg);
+    /* border: 1px solid var(--clr-display-bg); */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: .5rem;
@@ -69,15 +79,44 @@ button {
     border: 1px solid var(--clr-btn);
     border-radius: 50%;
     color: whitesmoke;
+    box-shadow: inset 1px 1px 5px #27272a, 1px 1px 5px rgba(0,0,0,1);
+    transition: all 0.15s ease-in-out;
 }
 
 .operators {
     color: var(--clr-operator-btn);
 }
 
+.operators:hover{
+    background-color: mediumturquoise;
+    transform: translateY(-.4rem);
+    color: #000;
+}
+
 button.unique {
     background-color: var(--clr-operator-btn);
-    color: var(--clr-uni-btn);
+    color: whitesmoke;
+    border: 1px solid var(--clr-operator-btn);
+}
+
+button.unique:hover {
+    background-color: #0891b2;
+    border: 1px solid #0891b2;
+    color: #000;
+
+}
+
+.clear_all:hover,
+.alter-PN:hover {
+    background-color: lightcoral;
+    color: #000;
+    transform: translateY(-.4rem);
+}
+
+.numbers:hover {
+    background-color: #bdbdbd;
+    color: var(--clr-calc-bg);
+    transform: translateY(-.4rem);
 }
 
 .zero {
