@@ -33,15 +33,15 @@ let operandOne, activeOperator, operandTwo;
 
 numkeys.forEach(btn => {
   btn.addEventListener("click", () => {
-    currentValue+= btn.textContent;
-    display.value = currentValue;
-
-    if(operandOne && activeOperator){
-        currentValue += btn.textContent;
-        display.value = currentValue;
-        operandTwo = parseFloat(currentValue);
-        console.log("operandTwo:", operandTwo);
-    }
+      if(operandOne && activeOperator){
+          currentValue += btn.textContent;
+          operandTwo = parseFloat(currentValue);
+          display.value = currentValue;
+          console.log("operandTwo:", operandTwo);
+      }else {
+          currentValue+= btn.textContent;
+          display.value = currentValue;
+      }
   });
 });
 
@@ -54,6 +54,16 @@ operators.forEach(btn => {
             display.value = ""; // Clear the display
             console.log("operandOne:", operandOne); // Debug log
             console.log("activeOperator:", activeOperator); // Debug log
+        });
+    }else {
+        btn.addEventListener("click", () => {
+            const currentResult = allOperations(operandOne, activeOperator, operandTwo);
+            display.value = currentResult; // shows current result on display
+            // Reset values for new operations 
+            operandOne = currentResult;
+            activeOperator = undefined;
+            operandTwo = undefined; 
+            currentValue = "";
         });
     }
 });
