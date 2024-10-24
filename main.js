@@ -94,6 +94,11 @@ signChange.addEventListener("click", () => {
         currentValue = (parseFloat(display.value) * -1).toString();
         display.value = currentValue;
     }
+    if(operandOne && activeOperator){
+        operandTwo = parseFloat(currentValue);
+    }else{
+        operandOne = parseFloat(currentValue);
+    }
 });
 
 clearAll.addEventListener("click", () => {
